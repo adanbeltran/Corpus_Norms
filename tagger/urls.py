@@ -14,9 +14,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include   
+from django.conf.urls import url, include
+from django.views.generic import TemplateView
+from front_tag.views import NormaList #2
+from django.urls import reverse
+
+#url(r'^django-sb-admin/', include('django_sb_admin.urls')),
+#url(r'^accounts/login/$', auth_views.login,{'template_name': 'django_sb_admin/examples/login.html'}),
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('front_tag/', include('front_tag.urls')),
+    url(r'^admin/', admin.site.urls),
+    url(r'^front_tag/', include('front_tag.urls')),
+    #path('norma/', TemplateView.as_view(template_name = "norma/list_norma.html")),
+    #path('norma/' , NormaList.as_view(), name='list'),   # 2
+    url(r'^django-sb-admin/', include('django_sb_admin.urls')),
+    #path(r'accounts/login/$', auth_views.login,{'template_name': 'django_sb_admin/examples/login.html'}),
 ]
