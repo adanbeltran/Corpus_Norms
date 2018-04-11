@@ -3,19 +3,40 @@
 {% block sb_admin_title %}Normas{% endblock sb_admin_title %}
 
 {% block sb_admin_navbar_right %}Lista{% endblock sb_admin_navbar_right %}
-{% block sb_admin_content %}Contenido
-<ul>
-    {% for course in object_list %}
-        <li>
-            <p>{{ course.name }}</p>
-            <p>
-                <a href="{% url "courses:detail" course.id %}">Ver</a> | 
-                <a href="{% url "courses:edit" course.id %}">Editar</a> | 
-                <a href="{% url "courses:delete" course.id %}">Borrar</a> 
-            </p>
-        </li>
-    {% endfor %}
-</ul>
+{% block sb_admin_content %}
+
+    <h2>Listado de Normas</h2>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>Texto de Norma</th>
+                    <th>Fecha Creacion</th>
+                    <th>Url de Norma</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                    {% for norma in object_list %}
+                        <tr class="active">
+                            <td>{{norma.norm_text}}</td>
+                            <td>{{norma.fecha_creacion}}</td>
+                            <td>{{norma.norm_url }} </td>
+                            <td>
+                                <a href=>
+                                    Editar
+                                </a>
+                                <a href=>
+                                        Eliminar
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
 {% endblock sb_admin_content %}
 
 

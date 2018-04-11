@@ -12,8 +12,10 @@ from django.views.generic import TemplateView, ListView
 from .models import Question, Choice, Norma
 
 class NormaList(ListView):
-    model = Norma
     template_name = 'norma/list_norma.html'
+    def get_queryset(self):
+        return Norma.objects.all() 
+ 
 
 """class NormaView(TemplateView):
     model = Norma

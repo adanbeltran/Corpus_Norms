@@ -36,7 +36,8 @@ class Norma(models.Model):
                        (ESPANOL,   'Español'),
                        (FRANCES,   'Frances'),
                        (PORTUGUES, 'Portugues'))
-    
+    def __str__(self):
+        return self.norm_text
 
 class Etiqueta(models.Model):
     id              = models.AutoField(primary_key=True)
