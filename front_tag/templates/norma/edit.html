@@ -1,0 +1,13 @@
+{% extends "django_sb_admin/base.html" %}
+{% block sb_admin_header %}Normas{% endblock sb_admin_header %}
+{% block sb_admin_title %}Normas{% endblock sb_admin_title %}
+
+{% block sb_admin_navbar_right %}Lista{% endblock sb_admin_navbar_right %}
+{% block sb_admin_content %}
+
+<form method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit" />
+</form>
+
+{% endblock sb_admin_content %}

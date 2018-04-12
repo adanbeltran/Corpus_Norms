@@ -6,8 +6,10 @@ from django.shortcuts import render, get_object_or_404
 from django.template import loader
 from django.urls import reverse
 from django.core.exceptions import ObjectDoesNotExist
-from django.views import generic
-from django.views.generic import TemplateView, ListView
+from django.views import generic    
+from django.views.generic import TemplateView, ListView , FormView
+from django.views.generic.edit import CreateView , UpdateView , DeleteView
+
 
 from .models import Question, Choice, Norma
 
@@ -15,7 +17,12 @@ class NormaList(ListView):
     template_name = 'norma/list_norma.html'
     def get_queryset(self):
         return Norma.objects.all() 
- 
+
+class NormaUpdate(FormView):
+    model = Norma
+    template_name = 'norma/edit.html'
+    fieds = ['norm_text', 'norm_url']
+    #success_url = reverse_lazy('norma:list')
 
 """class NormaView(TemplateView):
     model = Norma
@@ -58,6 +65,8 @@ class DetailView(generic.DetailView):
     #return render(request, 'front_tag/detail.html',{'question': question})
     question = get_object_or_404(Question , pk=question_id)
     return render(request,'front_tag/detail.html',{'question':question})"""
+
+
 
 class ResultsView(generic.DetailView):
     model = Question
