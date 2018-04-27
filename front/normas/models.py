@@ -36,8 +36,8 @@ class Norma(models.Model):
 
 class Etiqueta(models.Model):
     id              = models.AutoField(primary_key=True)
-    nombre          = models.TextField()
-    etiqueta_text   = models.CharField(max_length=10000)
+    nombre          = models.CharField(max_length=500)
+    etiqueta_text   = models.TextField()
     fecha_creacion  = models.DateTimeField(auto_now=True)
     activa          = models.BooleanField("Activa", default=True)
 

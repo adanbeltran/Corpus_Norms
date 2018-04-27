@@ -1,0 +1,46 @@
+{% extends "django_sb_admin/base.html" %} 
+{% block sb_admin_header %}Etiqueta{% endblock sb_admin_header %}
+{% block sb_admin_title %}Etiqueta{% endblock sb_admin_title %}
+
+{% block sb_admin_navbar_right %} Nuevo/ Editar Etiqueta{% endblock sb_admin_navbar_right %}
+{% block sb_admin_content %}
+
+
+<div class="form-horizontal">
+    <div class="control-group">
+        <label class="control-label" >
+            Parametro
+        </label>
+        <div class="controls">
+            <input type="text" id="inputParametro" placeholder="Nombre Parametro" />
+        </div>
+        
+        <label class="control-label" >
+            Etiqueta Existente
+        </label>
+        <div class="controls">
+            <select id="inputParametro" placeholder="Etiqueta Existente" />
+                <option value="volvo">OFIELD</option>
+                <option value="saab">AHOG</option>
+                <option value="mercedes">SVP</option>
+            </select>
+        </div>
+        
+    </div>
+</div>
+<input type='button' value='Nuevo Parametro' id='addButton' />
+<input type='button' value='Borrar Paramentro' id='removeButton' 
+</br>
+<form method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Guardar</button>
+</form>
+
+
+{% if etiqueta %}
+    <a href="{% url 'delete_etiqueta' etiqueta.id %}">Eliminar Etiqueta</a>
+{% endif %}
+
+
+{% endblock sb_admin_content %}

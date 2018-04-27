@@ -5,6 +5,8 @@
 {% block sb_admin_navbar_right %} Nuevo/ Editar Norma{% endblock sb_admin_navbar_right %}
 {% block sb_admin_content %}
 
+<a href="{% url 'create_norma' %}">Nuevo Producto</a>
+
 <ul>
     {% for norma in normas %}
         <a href="{% url 'update_norma' norma.id %}">

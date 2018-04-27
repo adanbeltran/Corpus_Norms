@@ -1,11 +1,11 @@
 # Create your views here.
 from django.shortcuts import render , redirect
-from Normas.models import Etiqueta
+from django.apps import apps
 from .forms import EtiquetaForm
 
 
 def list_etiquetas(request):
-    etiquetas = Etiqueta.objects.all()
+    etiquetas = apps.get_model('normas','Etiqueta').objects.all()
     return render(request , 'etiquetas_list.html' , { 'etiquetas':etiquetas } )
 
 def create_etiqueta(request):
@@ -18,7 +18,7 @@ def create_etiqueta(request):
     return render (request , 'etiquetas-form.html', {'form': form})
 
 def update_etiqueta(request, id):
-    etiqueta = Etiqueta.objects.get(id=id)
+    etiqueta = apps.get_model('normas','Etiqueta').objects.get(id=id)
     form = EtiquetaForm(request.POST or None, instance=etiqueta)
 
     if form.is_valid():
@@ -29,7 +29,7 @@ def update_etiqueta(request, id):
 
 
 def delete_etiqueta(request, id):
-    etiqueta = Etiqueta.objects.get(id=id)
+    etiqueta = apps.get_model('normas','Etiqueta').objects.get(id=id)
 
     if request.method == 'POST':
         etiqueta.delete()
