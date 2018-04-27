@@ -1,0 +1,18 @@
+{% extends "django_sb_admin/base.html" %} 
+{% block sb_admin_header %}Normas{% endblock sb_admin_header %}
+{% block sb_admin_title %}Normas{% endblock sb_admin_title %}
+
+{% block sb_admin_navbar_right %} Nuevo/ Editar Norma{% endblock sb_admin_navbar_right %}
+{% block sb_admin_content %}
+
+<ul>
+    {% for norma in normas %}
+        <a href="{% url 'update_norma' norma.id %}">
+            <li> {{ norma.norm_text }}</li>
+        </a>
+    {% endfor %}
+</ul>
+
+
+{% endblock sb_admin_content %}
+

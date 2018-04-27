@@ -1,0 +1,21 @@
+{% extends "django_sb_admin/base.html" %} 
+{% block sb_admin_header %}Normas{% endblock sb_admin_header %}
+{% block sb_admin_title %}Normas{% endblock sb_admin_title %}
+
+{% block sb_admin_navbar_right %} Nuevo/ Editar Norma{% endblock sb_admin_navbar_right %}
+{% block sb_admin_content %}
+
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Guardar</button>
+</form>
+
+
+{% if norma %}
+    <a href="{% url 'delete_norma' norma.id %}">Delete</a>
+{% endif %}
+
+
+{% endblock sb_admin_content %}
