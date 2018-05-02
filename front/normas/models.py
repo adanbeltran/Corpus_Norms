@@ -8,6 +8,7 @@ class Norma(models.Model):
     items=[]
     TAG_CHOICES=[]
     myList=()
+    l = list(myList)
     id              = models.AutoField(primary_key=True)
     norm_text       = models.TextField()
     fecha_creacion  = models.DateTimeField(auto_now=True)
@@ -17,7 +18,9 @@ class Norma(models.Model):
     FRANCES         = 'FR'
     PORTUGUES       = 'PR'
     LANG_CHOICES    = ((INGLES,'Ingles'),(ESPANOL,'Espanol'),(FRANCES,'Frances'),(PORTUGUES,'Portugues'))
-    l = list(myList)
+    texto_etiquetado = models.TextField(default='')
+    aprobacion_etiquetado =  models.BooleanField("¿Etiquetado_Correcto?", default=True)
+    observaciones_etiquetado = models.CharField(max_length=10000, default='')  
     with open('/Users/ivan/PycharmProjects/front/normas/static/tag/option_tag.csv', 'r') as f:
         reader = csv.reader(f, delimiter=';')
         line = 0 
@@ -26,9 +29,10 @@ class Norma(models.Model):
             myList = list(items)
     for tag in items:
         TAG_CHOICES.append([tag[0] , tag[1]])
-    
     idioma          = models.CharField(max_length=20,choices=LANG_CHOICES , default=ESPANOL )
     pretag          = models.CharField(max_length=100,choices=TAG_CHOICES , default=TAG_CHOICES[0][0] )
+
+
                   
     def __str__(self):
         norm_text= 'ssss'

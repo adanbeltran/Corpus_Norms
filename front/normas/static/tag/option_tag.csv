@@ -1,2 +1,3 @@
-SVO;Subject Verb Object;SVOTag
-AHO;A-HOFELD;AHOTag
+SVO;Subject Verb Object;['SPO',["Object","Subject","Predicate"] ]
+AHO;A-HOFELD;['AHOHFELD',["RIGHT[]", "DUTY[]","PRIVILEGE[]" ]]
+TAG;A-TAG;['ATAG', ["PARAMETRO"]]

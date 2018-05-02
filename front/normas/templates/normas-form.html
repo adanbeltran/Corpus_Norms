@@ -1,15 +1,20 @@
 {% extends "django_sb_admin/base.html" %} 
-{% block sb_admin_header %}Normas{% endblock sb_admin_header %}
+{% block sb_admin_header %}
+
+ 
+{% endblock sb_admin_header %}
 {% block sb_admin_title %}Normas{% endblock sb_admin_title %}
 
 {% block sb_admin_navbar_right %} Nuevo/ Editar Norma{% endblock sb_admin_navbar_right %}
 {% block sb_admin_content %}
 
 
-<form method="POST">
-    {% csrf_token %}
-    {{ form }}
-    <button type="submit">Guardar</button>
+<form method="POST" role="form">
+    <div class="form-group">
+        {% csrf_token %}
+        {{ form.as_table }}
+        <button class="btn btn-lg btn-primary" type="submit">GUARDAR</button>
+    </div>
 </form>
 
 
@@ -18,4 +23,32 @@
 {% endif %}
 
 
+
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script>
+
+    $(document).ready(function () {
+            //your code here
+         
+        $("#id_pretag").change(function () {
+        console.log( $(this).val() );
+        var id_pretag = $(this).val() ; 
+        var text_norm = $('#id_norm_text').val() ;
+            $.ajax({
+                url: 'normas/ajax/etiquetado_automatico/',
+                data: {
+                    'pretag' : id_pretag,
+                    'norm'   : text_norm
+                },
+                dataType: 'json',
+                success: function(data) {
+                    if (data.pretag){
+                        $('#id_texto_etiquetado').val(data.pretag)
+                    }
+                }
+            });
+        });
+    });
+
+</script>
 {% endblock sb_admin_content %}

@@ -7,13 +7,22 @@
 
 <a href="{% url 'create_norma' %}">Nuevo Producto</a>
 
-<ul>
-    {% for norma in normas %}
-        <a href="{% url 'update_norma' norma.id %}">
-            <li> {{ norma.norm_text }}</li>
-        </a>
-    {% endfor %}
-</ul>
+    <table class="table table-bordered table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Norma</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for norma in normas %}
+                <tr>
+                    <td>{{ norma.norm_text }}</td>
+                    <td><a href="{% url 'update_norma' norma.id %}">Editar / Eliminar</a></td>
+                </tr>    
+            {% endfor %}
+        </tbody>
+    </table>
 
 
 {% endblock sb_admin_content %}

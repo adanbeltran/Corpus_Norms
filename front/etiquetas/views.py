@@ -2,6 +2,8 @@
 from django.shortcuts import render , redirect
 from django.apps import apps
 from .forms import EtiquetaForm
+from django.http import JsonResponse
+
 
 
 def list_etiquetas(request):
@@ -36,7 +38,6 @@ def delete_etiqueta(request, id):
         return redirect('list_etiquetas')
 
     return render(request, 'etiq-delete-confirm.html', {'etiqueta': etiqueta})
-
 
 
     
