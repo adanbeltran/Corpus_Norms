@@ -19,8 +19,8 @@ class TagNorm:
         return textTagged
 
 
-setTags=[['SP0',["Object","Subject","Predicate"] ], ['AHOHFELD',["RIGHT[]", "DUTY[]","PRIVILEGE[]" ]]]
-oTagNorm= TagNorm.tag_Norm('', "la casa en el lago",setTags)
-print(oTagNorm)
+#setTags=[['SP0',["Object","Subject","Predicate"] ], ['AHOHFELD',["RIGHT[]", "DUTY[]","PRIVILEGE[]" ]]]
+#oTagNorm= TagNorm.tag_Norm('', "la casa en el lago",setTags)
+#print(oTagNorm)
 #for tag in oTagNorm:
 #    print(tag)
