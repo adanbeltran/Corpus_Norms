@@ -14,4 +14,5 @@ urlpatterns = [
     path('update/<int:id>' , update_norma , name='update_norma') , 
     path('delete/<int:id>' , delete_norma , name='delete_norma'),
     path('update/normas/ajax/etiquetado_automatico/', etiquetado_automatico, name='etiquetado_automatico'),
+    path('normas/ajax/etiquetado_automatico/', etiquetado_automatico, name='etiquetado_automatico'),
 ]
