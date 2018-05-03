@@ -1,14 +1,29 @@
+{% extends "django_sb_admin/base.html" %} 
+{% block sb_admin_header %}{% endblock sb_admin_header %}
+{% block sb_admin_sidebar %}<!-- left sidebar -->
+<ul class="nav navbar-nav side-nav">
+        <li>
+            <a href="/django-sb-admin/"><i class="fa fa-fw fa-play"></i> MENU</a>
+        </li>
+        <li>
+            <a href="/django-sb-admin/"><i class="glyphicon glyphicon-plus"></i> Crear Etiqueta</a>
+        </li>    
+        <li class="active">
+            <a href="/django-sb-admin/dashboard/"><i class="glyphicon glyphicon-tag"></i> Normas Etiquetado Automatico</a>
+        </li>
+        <li>
+            <a href="/django-sb-admin/charts/"><i class="glyphicon glyphicon-tags"></i> Normas Etiquetadas</a>
+        </li>
+        <li>
+            <a href="/django-sb-admin/tables/"><i class="glyphicon glyphicon-check"></i> Validacion Etiquetado Norma</a>
+        </li>
+    </ul>
+{% endblock sb_admin_sidebar %}
+{% block sb_admin_title %}Normas{% endblock sb_admin_title %}
 
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+{% block sb_admin_navbar_right %} Nuevo/ Editar Norma{% endblock sb_admin_navbar_right %}
+{% block sb_admin_content %}
+
     <form method="post">
         {% csrf_token %}
         <h2>Esta seguro de borrar esta Norma :  {{ norma.norm_text }} ?</h2>
@@ -16,3 +31,6 @@
     </form>
 </body>
 </html>
+
+
+{% endblock sb_admin_content %}

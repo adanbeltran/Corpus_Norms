@@ -1,5 +1,24 @@
 {% extends "django_sb_admin/base.html" %} 
 {% block sb_admin_header %}Etiqueta{% endblock sb_admin_header %}
+{% block sb_admin_sidebar %}<!-- left sidebar -->
+<ul class="nav navbar-nav side-nav">
+    <li>
+        <a href="/django-sb-admin/"><i class="fa fa-fw fa-play"></i> MENU</a>
+    </li>
+    <li>
+        <a href="/django-sb-admin/"><i class="glyphicon glyphicon-plus"></i> Crear Etiqueta</a>
+    </li>    
+    <li class="active">
+        <a href="/django-sb-admin/dashboard/"><i class="glyphicon glyphicon-tag"></i> Normas Etiquetado Automatico</a>
+    </li>
+    <li>
+        <a href="/django-sb-admin/charts/"><i class="glyphicon glyphicon-tags"></i> Normas Etiquetadas</a>
+    </li>
+    <li>
+        <a href="/django-sb-admin/tables/"><i class="glyphicon glyphicon-check"></i> Validacion Etiquetado Norma</a>
+    </li>
+</ul>
+{% endblock sb_admin_sidebar %}
 {% block sb_admin_title %}Etiqueta{% endblock sb_admin_title %}
 
 {% block sb_admin_navbar_right %} Nuevo/ Editar Etiqueta{% endblock sb_admin_navbar_right %}
