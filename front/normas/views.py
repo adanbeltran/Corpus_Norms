@@ -65,10 +65,8 @@ def etiquetado_automatico(request):
 
     data = {
         'pretag': str(oTagNorm)
-        #'pretag' : 'lskjflksdjfldks\'\''
     }
-
-
+    
     return JsonResponse(data)
 
     
